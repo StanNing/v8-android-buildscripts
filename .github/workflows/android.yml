@@ -4,6 +4,8 @@ on: [push]
 
 env:
   CACHE_KEY_SUFFIX: v2
+  V8_VERSION: 8.4.371.19
+  VERSION: 8.84.0
 
 jobs:
   build:
