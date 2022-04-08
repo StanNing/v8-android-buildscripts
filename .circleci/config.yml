@@ -10,6 +10,9 @@ jobs:
           TZ: UTC
 
     working_directory: ~/v8-android-buildscripts
+
+    parallelism: 4
+
     steps:
       - run:
           name: Setup Ubuntu environment
