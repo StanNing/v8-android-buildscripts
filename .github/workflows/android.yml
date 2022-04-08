@@ -4,8 +4,6 @@ on: [push]
 
 env:
   CACHE_KEY_SUFFIX: v2
-  V8_VERSION: 8.4.371.19
-  VERSION: 8.84.0
 
 jobs:
   build:
@@ -26,10 +24,10 @@ jobs:
     steps:
       - name: Setup docker workspace
         run: |
-          sudo sh -c "chown -R ubuntu $HOME"
-          sudo sh -c "chmod 777 $GITHUB_WORKSPACE"
-          # sudo sh -c "chmod 777 $GITHUB_WORKSPACE/../../_temp"
-          sudo sh -c "chmod 777 /home"
+            sudo sh -c "chown -R ubuntu $HOME"
+            sudo sh -c "chmod 777 $GITHUB_WORKSPACE"
+            # sudo sh -c "chmod 777 $GITHUB_WORKSPACE/../../_temp"
+            sudo sh -c "chmod 777 /home"
 
       - uses: actions/checkout@v2
 
@@ -40,8 +38,8 @@ jobs:
           sudo apt-get upgrade -y
           sudo apt-get install -y apt-utils sudo lsb-core git python nodejs npm wget openjdk-8-jre openjdk-8-jdk
 
-#      - name: Export settings from npm package
-#        run: npm run export_npm_env
+      - name: Export settings from npm package
+        run: npm run export_npm_env
 
       # - uses: actions/cache@v2
       #   with:
