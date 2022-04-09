@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-source $(dirname $0)/env.sh
+source $(dirname ${npm_package_config_V8})/env.sh
 if [[ ${CIRCLECI} ]]; then
   echo "export VERSION=${npm_package_version}" >> $BASH_ENV
   echo "export V8_VERSION=${npm_package_config_V8}" >> $BASH_ENV
