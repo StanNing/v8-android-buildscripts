@@ -42,7 +42,7 @@ jobs:
           # see circleci.com/docs/2.0/caching/
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - ~/${ROOT_DIR}
+            - /home/ubuntu/v8-android-buildscripts
 
   build-V8-arm:
     docker:
