@@ -35,8 +35,7 @@ function verify_platform()
 CURR_DIR=$(dirname $(abs_path $0))
 ROOT_DIR=$(dirname ${CURR_DIR})
 
-sudo sh -c "chmod 777 $GITHUB_ENV"
-echo "ROOT_DIR=${ROOT_DIR}" >> $GITHUB_ENV
+npm run export_env ${ROOT_DIR}
 
 unset CURR_DIR
 
