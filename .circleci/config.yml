@@ -37,6 +37,13 @@ jobs:
           command: |
             scripts/patch.sh android
 
+      - save_cache: # Caches dependencies with a cache key
+          # template for an environment variable,
+          # see circleci.com/docs/2.0/caching/
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/${ROOT_DIR}
+
   build-V8-arm:
     docker:
       - image: kudo/ubuntu-nonroot:18.04
@@ -47,6 +54,8 @@ jobs:
 
     working_directory: ~/v8-android-buildscripts
     steps:
+      - restore_cache: # Restores the cached dependency.
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Build V8 arm
           command: |
@@ -62,6 +71,8 @@ jobs:
 
     working_directory: ~/v8-android-buildscripts
     steps:
+      - restore_cache: # Restores the cached dependency.
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Build V8 arm64
           command: |
@@ -77,6 +88,8 @@ jobs:
 
     working_directory: ~/v8-android-buildscripts
     steps:
+      - restore_cache: # Restores the cached dependency.
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Build V8 x64
           command: |
@@ -92,6 +105,8 @@ jobs:
 
     working_directory: ~/v8-android-buildscripts
     steps:
+      - restore_cache: # Restores the cached dependency.
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Build V8 x86
           command: |
