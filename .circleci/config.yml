@@ -41,14 +41,29 @@ jobs:
             scripts/patch.sh android
 
       - run:
-          name: Build V8
+          name: Build V8 arm
           command: |
-            scripts/build.sh android
-            scripts/archive.sh android
+            scripts/build_arm.sh android
+
+      - run:
+          name: Build V8 arm64
+          command: |
+            scripts/build_arm64.sh android
+
+      - run:
+          name: Build V8 x64
+          command: |
+            scripts/build_x64.sh android
+
+      - run:
+          name: Build V8 x86
+          command: |
+            scripts/build_x86.sh android
 
       - run:
           name: Archive
           command: |
+            scripts/archive.sh android
             tar cvfz dist.tgz dist
 
       - store_artifacts:

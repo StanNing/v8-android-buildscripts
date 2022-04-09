@@ -37,9 +37,6 @@ jobs:
           sudo apt-get update
           sudo apt-get upgrade -y
           sudo apt-get install -y apt-utils sudo lsb-core git python nodejs npm wget openjdk-8-jre openjdk-8-jdk
-          sudo apt-get update && sudo apt-get install -yqq daemonize dbus-user-session fontconfig
-          sudo daemonize /usr/bin/unshare --fork --pid --mount-proc /lib/systemd/systemd --system-unit=basic.target
-          exec sudo nsenter -t $(pidof systemd) -a su - $LOGNAME
 
       - name: Export settings from npm package
         run: npm run export_npm_env
