@@ -34,6 +34,10 @@ function verify_platform()
 
 CURR_DIR=$(dirname $(abs_path $0))
 ROOT_DIR=$(dirname ${CURR_DIR})
+
+sudo sh -c "chmod 777 $GITHUB_ENV"
+echo "ROOT_DIR=${ROOT_DIR}" >> $GITHUB_ENV
+
 unset CURR_DIR
 
 DEPOT_TOOLS_DIR="${ROOT_DIR}/scripts/depot_tools"
